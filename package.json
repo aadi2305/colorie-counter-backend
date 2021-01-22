@@ -16,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/aadi2305/colorie-counter-backend/issues"
   },
-  "homepage": "https://github.com/aadi2305/colorie-counter-backend#readme"
+  "homepage": "https://github.com/aadi2305/colorie-counter-backend#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.13",
+    "unirest": "^0.6.0"
+  }
 }

@@ -1,10 +1,12 @@
 const mongoose = require("mongoose") ;
 
 const userSchema = mongoose.Schema({
-    id : {
+    email : {
         required : true,
         type : String
-    }
+    },
+    email : String,
+    sex : String,
     name : String,
     age : Number,
     weight : Number,
@@ -12,7 +14,15 @@ const userSchema = mongoose.Schema({
     targetWeight: Number,
     calReq : Number,
     targetCal : Number,
-    dailyData : [Object]
+    dailyData : [{
+        totalCal : Number,
+        date: String,
+        breakfast : [Object],
+        morningSnack : [Object],
+        lunch : [Object],
+        eveningSnack : [Object],
+        dinner : [Object]
+    }]
 })
 
 const Users = mongoose.model("user", userSchema)

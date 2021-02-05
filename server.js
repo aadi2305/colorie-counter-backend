@@ -34,6 +34,8 @@ app.post(("/createUser"), (req,res)=>{
 
 app.post(("/updateUser"), (req,res)=>{
     const user = req.body;
+    // const targetCal = req.body.targetCal;
+    // console.log(targetCal);
     Users.updateOne({email : user.email},user,(err,response)=>{
         if(err)res.send(err);
         else res.send(response);
@@ -65,6 +67,16 @@ app.post(("/getUserInfo"), (req,res)=>{
                 })
                 res.send(data.dailyData[data.dailyData.length -1]);
             }
+        }
+    })
+})
+
+app.post(("/getUserHealthInfo"), (req,res)=>{
+    const email = req.body.email;
+    Users.findOne({email : email},(err,data)=>{
+        if(err)res.send(err)
+        else{
+            res.send(data);
         }
     })
 })

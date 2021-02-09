@@ -70,7 +70,16 @@ app.post(("/getUserInfo"), (req,res)=>{
         }
     })
 })
-
+app.post(("/changeTheme"), (req,res)=>{
+    const email = req.body.email;
+    const mode = req.body.theme;
+    Users.updateOne({email : email},{mode : mode},(err,data)=>{
+        if(err)res.send(err)
+        else{
+            res.send(data);
+        }
+    })
+})
 app.post(("/getUserHealthInfo"), (req,res)=>{
     const email = req.body.email;
     Users.findOne({email : email},(err,data)=>{
